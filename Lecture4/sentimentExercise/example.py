@@ -29,3 +29,13 @@ top_words = word_reduce.filter(select_words).sortBy(lambda s: s[1])
 # Collect to a Python list and print
 print(top_words.collect())
 
+# Read in alice.txt
+txtFile = sc.textFile("hdfs://namenode:9000/txt/alice.txt")
+# Take the content of the file and split them
+all_word = txtFile.flatMap(lambda s: s[1].split())
+# Change from list of words to list of (word, 1)
+word_map = all_word.map(lambda s: (s, 1))
+# Count positive and negative words
+positiveWordCount = 0
+negativeWordCount = 0
+word_map.
