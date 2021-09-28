@@ -1,0 +1,1 @@
+app/bin/flume-ng agent --conf /config/ --conf-file /config/kafka-to-file.conf --name FlumeAgent -Dflume.root.logger=INFO,console

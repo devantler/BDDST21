@@ -1,0 +1,9 @@
+[
+    {
+        "bash": "/app/bin/flume-ng",
+        "agent": "",
+        "--conf": "/config/",
+        "--conf-file": "kafka-to-file.conf",
+        "--name": "$FLUME_AGENT"
+    }
+]
