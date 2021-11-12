@@ -1,8 +1,11 @@
-FROM bde2020/spark-python-template:3.1.1-hadoop3.2
+FROM bde2020/spark-submit:3.1.1-hadoop3.2
 
-# ONBUILD COPY requirements.txt /app/
-# ONBUILD RUN pip3 install -r /app/requirements.txt
-	  
-COPY example.py /app/
+COPY template.sh /
 
-ENV SPARK_APPLICATION_PYTHON_LOCATION /app/example.py
+COPY . /app/
+WORKDIR /app
+RUN pip install -r requirements.txt
+
+ENV SPARK_APPLICATION_PYTHON_LOCATION /app/entrypoint.py
+
+CMD ["/bin/bash", "/template.sh"]
